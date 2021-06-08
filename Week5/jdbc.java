@@ -11,7 +11,7 @@ public class JDBC {
 
     }
 
-    private static Connection getConnection() throws SQLException {
+    pprivate static Connection getConnection() throws SQLException {
 
         final String username = "Erzhan2";
         final String password = "fixer";
@@ -30,76 +30,112 @@ public class JDBC {
     private static void showTableCar() throws SQLException {
 
         Connection connection = getConnection();
-        Statement statement = connection.createStatement();
-        String myRSet = "SELECT * FROM cars";
-        ResultSet resultSet = statement.executeQuery(myRSet);
-        if(resultSet != null) {
+        Statement statement = null;
+        try{
+            statement = connection.createStatement();
+            String myRSet = "SELECT * FROM cars";
+            ResultSet resultSet = statement.executeQuery(myRSet);
+            if(resultSet != null) {
 
-            ResultSetMetaData metadata = resultSet.getMetaData();
-            int columnCount = metadata.getColumnCount();
+                ResultSetMetaData metadata = resultSet.getMetaData();
+                int columnCount = metadata.getColumnCount();
 
-            System.out.println("\n");
+                System.out.println("\n");
 
-            while (resultSet.next()) {
-                for (int i = 1; i <= columnCount; i++)
-                    System.out.print(resultSet.getString(i) + "\t");
-                System.out.println();
+                while (resultSet.next()) {
+                    for (int i = 1; i <= columnCount; i++)
+                        System.out.print(resultSet.getString(i) + "\t");
+                    System.out.println();
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
-        resultSet.close();
-        statement.close();
-        connection.close();
-
     }
     private static void showTableCustomers() throws SQLException {
 
         Connection connection = getConnection();
-        Statement statement = connection.createStatement();
-        String myRSet = "SELECT * FROM customers";
-        ResultSet resultSet = statement.executeQuery(myRSet);
-        if(resultSet != null) {
+        Statement statement = null;
+        try{
+            statement = connection.createStatement();
+            String myRSet = "SELECT * FROM customers";
+            ResultSet resultSet = statement.executeQuery(myRSet);
+            if(resultSet != null) {
 
-            ResultSetMetaData metadata = resultSet.getMetaData();
-            int columnCount = metadata.getColumnCount();
+                ResultSetMetaData metadata = resultSet.getMetaData();
+                int columnCount = metadata.getColumnCount();
 
-            System.out.println("\n");
+                System.out.println("\n");
 
-            while (resultSet.next()) {
-                for (int i = 1; i <= columnCount; i++)
-                    System.out.print(resultSet.getString(i) + "\t");
-                System.out.println();
+                while (resultSet.next()) {
+                    for (int i = 1; i <= columnCount; i++)
+                        System.out.print(resultSet.getString(i) + "\t");
+                    System.out.println();
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
-        resultSet.close();
-        statement.close();
-        connection.close();
-
     }
     private static void showTableCarstore() throws SQLException {
 
         Connection connection = getConnection();
-        Statement statement = connection.createStatement();
-        String myRSet = "SELECT * FROM carstore";
-        ResultSet resultSet = statement.executeQuery(myRSet);
-        if(resultSet != null) {
+        Statement statement = null;
+        try{
+            statement = connection.createStatement();
+            String myRSet = "SELECT * FROM carstore";
+            ResultSet resultSet = statement.executeQuery(myRSet);
+            if(resultSet != null) {
 
-            ResultSetMetaData metadata = resultSet.getMetaData();
-            int columnCount = metadata.getColumnCount();
+                ResultSetMetaData metadata = resultSet.getMetaData();
+                int columnCount = metadata.getColumnCount();
 
-            System.out.println("\n");
+                System.out.println("\n");
 
-            while (resultSet.next()) {
-                for (int i = 1; i <= columnCount; i++)
-                    System.out.print(resultSet.getString(i) + "\t");
-                System.out.println();
+                while (resultSet.next()) {
+                    for (int i = 1; i <= columnCount; i++)
+                        System.out.print(resultSet.getString(i) + "\t");
+                    System.out.println();
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
-        resultSet.close();
-        statement.close();
-        connection.close();
-
     }
-    private static void deleteCustomer(String name) throws SQLException {
+    private static void deleteProduct(String name) throws SQLException {
         Connection connection = getConnection();
         if (connection != null) {
             PreparedStatement preparedStatement = null;
