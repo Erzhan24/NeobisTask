@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class foobar {
+    public static void main(String[] args) {
+        System.out.println("Enter an Integer number:");
+
+        Scanner input = new Scanner(System.in);
+        int num = input.nextInt();
+
+        if ( num % 2 == 0 ) {
+            System.out.println("foo <the integer that was given>");
+            System.exit(0);
+        } else
+            System.out.println("bar <the integer that was given>");
+            System.exit( 0 );
+
+    }
+}
+
