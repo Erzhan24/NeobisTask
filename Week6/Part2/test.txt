@@ -1,0 +1,89 @@
+Get request that return all existing Customers:
+ @GetMapping(value="/all")
+ public List<Customers> getAllCustomers()
+
+ Path: GET   localhost:8080/customers/all
+ Response: 200 OK
+ result:
+
+    [
+        {
+            "id": 4,
+            "email": "batiev@gmail.com",
+            "name": "Nurik",
+            "number": 772909059,
+            "address": "Abaya 56"
+        },
+        {
+            "id": 3,
+            "email": "ibragimov@gmail.com",
+            "name": "Maksat",
+            "number": 772909090,
+            "address": "Abaya 76"
+        },
+        {
+            "id": 2,
+            "email": "sydykov@gmail.com",
+            "name": "Kantemir",
+            "number": 990909000,
+            "address": "Abaya 65"
+        },
+        {
+            "id": 1,
+            "email": "rus",
+            "name": "009902324",
+            "number": 9,
+            "address": "tlokov@gmail.com"
+        }
+    ]
+-----------------------------------------------------------------------------------
+Get request that return only one Customers:
+  @GetMapping("/{id}")
+     public Customers getCustomers(@PathVariable ("id") Integer id)
+
+ Path: GET   localhost:8080/customers/:id
+ Response: 200 OK
+ result:
+
+   {
+       "id": 2,
+       "email": "sydykov@gmail.com",
+       "name": "Kantemir",
+       "number": 990909000,
+       "address": "Abaya 65"
+   }
+-----------------------------------------------------------------------------------
+ Put request
+ change customers by id:
+   @PutMapping("/{id}")
+      public Customers putCustomers(@PathVariable ("id") Integer id ,@RequestBody Customers customers)
+Path: PUT http://localhost:8080/customers/1
+ {
+ "id": 1,
+ "email": "yabar@gmail.com",
+ "name": "Sala",
+ "number": 990909090,
+ "address": "Went"
+ }
+ 200 OK
+-------------------------------------------------------------------------------------
+Post request
+add new customer
+@PostMapping("/add")
+    public Customers addCustomers(@RequestBody Customers customers)
+Path: POST http://localhost:8080/customers/add
+enter in body (raw,json)
+{
+"id" : 5,
+"email": "tlokov@gmail.com",
+"name": "sala",
+"number": 908934765,
+"address": "eightdistr"
+}
+ 200 OK
+
+---------------------------------------------------------------------------------------
+Delete request
+delete customers by id
+Path: DELETE   http://localhost:8080/customers/:id
+result: 200 OK
